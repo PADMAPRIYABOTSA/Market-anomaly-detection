@@ -19,15 +19,15 @@ Running on 1,707 hourly observations across one year of SPY data:
 anomalies detected=35(2.1%)
 
 # Anomaly vs Normal
-Price    log_return  volume_ratio  range_ratio  return_zscore
-Normal        0.000         0.976        0.003          0.001
-Anomaly      -0.004         2.416        0.009         -1.291
+Price  |  log_return  |volume_ratio | range_ratio | return_zscore
+Normal    |    0.000    |     0.976   |     0.003    |      0.001
+Anomaly   |  -0.004     |    2.416    |    0.009     |    -1.291
 
 # Anomaly timing:
 by hour of day:
 Datetime
-9     26
-10     2
-11     2
-12     1
-14     4
+9   |  26
+10  |  2
+11  |  2
+12  |  1
+14  |  4
