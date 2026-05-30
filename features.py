@@ -51,11 +51,11 @@ print(x.head(5))
 print(x.describe().round(2))
 
 
-# In[7]:
+# In[8]:
 
 
-x.to_parquet("data_to_fit.parquet")
-df.to_parquet("entire_dataframe.parquet")
+x.to_parquet("data_to_fit.parquet") #this is the data that contains only the features
+df.to_parquet("entire_dataframe.parquet") #this contains raw columns and features
 
 
 # In[ ]:

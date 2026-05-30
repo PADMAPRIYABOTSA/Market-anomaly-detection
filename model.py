@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[34]:
+# In[43]:
 
 
 import yfinance as yf
@@ -10,11 +10,11 @@ import numpy as np
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
-x=pd.read_parquet("data_to_fit.parquet")
-df=pd.read_parquet("entire_dataframe.parquet")
+x=pd.read_parquet("data_to_fit.parquet") #this data is to fit the model, it contains only features
+df=pd.read_parquet("entire_dataframe.parquet") #this data is to for visulaization and it contains raw columns, features
 
 
-# In[35]:
+# In[51]:
 
 
 #scaling features
@@ -31,37 +31,30 @@ df['anomaly_label']=model.predict(x_scaled) #-1=anomaly, 1=normal
 df['anomaly_score']=model.decision_function(x_scaled) # mroe negative more anomalous
 df['is_anomaly']=df['anomaly_label']==-1 #flagging anomalies
 n_anomalies=df['is_anomaly'].sum()
-print(n_anomalies)
-df['is_anomaly'].value_counts()
+print(f"no. of anomalies in the data:{n_anomalies}")
 
 
-# In[36]:
+# In[45]:
 
 
 df.head(10)
 
 
-# In[37]:
+# In[46]:
 
 
 normal=df[~df['is_anomaly']]
 normal.head(5)
 
 
-# In[ ]:
-
-
-
-
-
-# In[38]:
+# In[47]:
 
 
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 
-# In[39]:
+# In[48]:
 
 
 fig=make_subplots(
@@ -93,7 +86,7 @@ fig.add_trace(
 )
 fig.add_trace(
     go.Scatter(
-        x=x.index,y=df['anomaly_score'],
+        x=df.index,y=df['anomaly_score'],
         mode='lines',name='Anomaly Score',
         line=dict(color='#9467bd',width=0.8)
         
@@ -113,7 +106,16 @@ fig.write_html("anomaly_dashboard.html",include_plotlyjs='cdn')
 fig.show()
 
 
-# In[41]:
+# SPY Price with Anomalies:
+# 1.SPY went from 600 around in June to 750 by May of the next year.
+# 2.There are several anomalies bunched together at certain period. 
+# 3.Coinciding with what looks like a sharp drop and recovery in SPY price around the period, there are anomalities clustered.
+# 
+# Anomaly Score:
+# 1.Most scores are between -0.1 and 0.2
+# 2.The deep dips below -0.1 — those are the hours the model found most unusual. Notice they appear at roughly the same times as the red X clusters in panel 1 — Sep 2025, Jan 2026, and May 2026
+
+# In[49]:
 
 
 print("Anomaly analysis report")
@@ -135,7 +137,7 @@ print("by hour of day:")
 print(anomaly_hours.to_string())
 
 
-# In[42]:
+# In[50]:
 
 
 print(f"Total rows: {len(df)}")
