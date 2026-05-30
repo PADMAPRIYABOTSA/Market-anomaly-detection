@@ -18,16 +18,19 @@ price_vs_ma -> How far is price from its 20-hour moving average?
 Running on 1,707 hourly observations across one year of SPY data:
 anomalies detected=35(2.1%)
 
-# Anomaly vs Normal
-Price  |  log_return  |volume_ratio | range_ratio | return_zscore
-Normal    |    0.000    |     0.976   |     0.003    |      0.001
-Anomaly   |  -0.004     |    2.416    |    0.009     |    -1.291
+## Anomaly vs Normal — Average Characteristics
 
-# Anomaly timing:
-by hour of day:
-Datetime
-9   |  26
-10  |  2
-11  |  2
-12  |  1
-14  |  4
+| | Log Return | Volume Ratio | Range Ratio | Return Z-Score |
+|---|---|---|---|---|
+| **Normal** | 0.000 | 0.976 | 0.003 | 0.001 |
+| **Anomaly** | -0.004 | 2.416 | 0.009 | -1.291 |
+
+## Anomaly Timing — By Hour of Day (ET)
+
+| Hour | Anomalies |
+|---|---|
+| 9am (market open) | 26 |
+| 10am | 2 |
+| 11am | 2 |
+| 12pm | 1 |
+| 2pm | 4 |
