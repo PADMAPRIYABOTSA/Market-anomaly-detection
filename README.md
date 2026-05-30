@@ -34,3 +34,4 @@ anomalies detected=35(2.1%)
 | 11am | 2 |
 | 12pm | 1 |
 | 2pm | 4 |
+<img width="1512" height="600" alt="anomalies_dashboard" src="https://github.com/user-attachments/assets/d41c35c5-6f0f-4215-a425-1c242f944c98" />
