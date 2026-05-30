@@ -35,11 +35,11 @@ anomalies detected=35(2.1%)
 | 12pm | 1 |
 | 2pm | 4 |
 <img width="1512" height="600" alt="anomalies_dashboard" src="https://github.com/user-attachments/assets/d41c35c5-6f0f-4215-a425-1c242f944c98" />
-SPY Price with Anomalies:
+# SPY Price with Anomalies:
 1.SPY went from 600 around in June to 750 by May of the next year.
 2.There are several anomalies bunched together at certain period. 
 3.Coinciding with what looks like a sharp drop and recovery in SPY price around the period, there are anomalities clustered.
 
-Anomaly Score:
+# Anomaly Score:
 1.Most scores are between -0.1 and 0.2
 2.The deep dips below -0.1 — those are the hours the model found most unusual. Notice they appear at roughly the same times as the red X clusters in panel 1 — Sep 2025, Jan 2026, and May 2026
